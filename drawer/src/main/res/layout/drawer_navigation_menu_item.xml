@@ -45,6 +45,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="?android:textColorPrimary"
                 tools:ignore="Deprecated"/>
             <CheckedTextView
                 android:id="@+id/drawer_menu_item_subtext"
@@ -54,6 +55,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body3"
+                android:textColor="?android:textColorSecondary"
                 tools:ignore="Deprecated"/>
         </LinearLayout>
         <ImageButton
