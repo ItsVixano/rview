@@ -15,7 +15,7 @@
      limitations under the License.
  -->
 <resources>
-    <style name="AppThemeBase" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+    <style name="AppThemeBase" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/accent</item>
@@ -84,6 +84,10 @@
         <item name="floatingSearch_suggestionRightIconColor">?attr/colorAccent</item>
         <item name="floatingSearch_searchBarTextSize">12sp</item>
         <item name="floatingSearch_searchSuggestionTextSize">10sp</item>
+        <item name="floatingSearch_backgroundColor">@color/primaryBackgroundColor</item>
+        <item name="floatingSearch_viewTextColor">?android:textColorPrimary</item>
+        <item name="floatingSearch_hintTextColor">?android:textColorHint</item>
+        <item name="floatingSearch_dividerColor">@color/boxBorderColor</item>
     </style>
 
 </resources>

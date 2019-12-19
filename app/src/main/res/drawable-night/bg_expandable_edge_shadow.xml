@@ -14,6 +14,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources>
-    <color name="translucentStatusBarColor">@android:color/transparent</color>
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient android:angle="270" android:startColor="#00424242" android:endColor="#ff424242" />
+</shape>

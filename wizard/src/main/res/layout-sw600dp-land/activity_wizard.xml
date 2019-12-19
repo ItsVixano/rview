@@ -58,7 +58,8 @@
                         android:layout_weight="1"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@android:color/white"
                         android:textSize="28sp"
                         android:text="@{workflow.title}"
                         tools:ignore="NestedWeights"/>
