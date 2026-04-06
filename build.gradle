@@ -41,7 +41,7 @@ ext {
         smoothprogressbar           : '1.1.0',
         glide                       : '4.11.0',
         prettytime                  : '4.0.5.Final',
-        flexboxlayout               : '2.0.1',
+        flexboxlayout               : '3.0.0',
         floatingsearchview          : '2d435bead5',
         androidsvg                  : '1.4',
         keyboardvisibilityevent     : '2.3.0',
