@@ -661,11 +661,6 @@
     <string name="edit_file_rename_old_hint">Old file</string>
     <string name="edit_file_rename_new_hint">New file</string>
 
-    <!-- Create new change dialog -->
-    <string name="create_new_change_title">Create new change</string>
-    <string name="create_new_change_is_private">Private</string>
-    <string name="create_new_change_is_wip">Work in progress</string>
-
     <!-- Gallery chooser -->
     <string name="gallery_chooser_title">Gallery</string>
     <string name="gallery_chooser_loading">Collecting data. Wait\u2026</string>

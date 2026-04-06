@@ -21,14 +21,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.ruesga.rview.BaseActivity;
 import com.ruesga.rview.R;
 import com.ruesga.rview.gerrit.GerritApi;
 import com.ruesga.rview.gerrit.filter.ChangeQuery;
 import com.ruesga.rview.gerrit.model.ChangeInfo;
 import com.ruesga.rview.gerrit.model.ChangeInput;
 import com.ruesga.rview.gerrit.model.ChangeOptions;
-import com.ruesga.rview.gerrit.model.InitialChangeStatus;
 import com.ruesga.rview.misc.ActivityHelper;
 import com.ruesga.rview.misc.ModelHelper;
 import com.ruesga.rview.preferences.Preferences;
@@ -48,8 +46,7 @@ import me.tatarka.rxloader2.RxLoaderManager;
 import me.tatarka.rxloader2.RxLoaderObserver;
 import me.tatarka.rxloader2.safe.SafeObservable;
 
-public class ChangeListByFilterFragment extends ChangeListFragment
-        implements NewChangeDialogFragment.OnNewChangeRequestedListener {
+public class ChangeListByFilterFragment extends ChangeListFragment {
 
     private static final Pattern LIMIT_FILTER_PATTERN = Pattern.compile(".*( limit:(\\d+))");
 
@@ -130,19 +127,6 @@ public class ChangeListByFilterFragment extends ChangeListFragment
     void setupLoaders(RxLoaderManager loaderManager) {
         mNewChangeLoader = loaderManager.create("new_change",
                 this::performCreateNewChange, mNewChangeObserver);
-    }
-
-    @Override
-    BaseActivity.OnFabPressedListener getFabPressedListener() {
-        //noinspection ConstantConditions
-        if (!getArguments().getBoolean(EXTRA_HAS_FAB, false)) {
-            return null;
-        }
-
-        return fab -> {
-            NewChangeDialogFragment fragment = NewChangeDialogFragment.newInstance(0, fab);
-            fragment.show(getChildFragmentManager(), NewChangeDialogFragment.TAG);
-        };
     }
 
     public Observable<List<ChangeInfo>> fetchChanges(Integer count, Integer start) {
@@ -229,26 +213,6 @@ public class ChangeListByFilterFragment extends ChangeListFragment
         final int start = getCurrentData(false).size() - FETCHED_MORE_CHANGES_THRESHOLD;
         getChangesLoader().clear();
         getChangesLoader().restart(count, start);
-    }
-
-    @Override
-    public void onNewChangeRequested(int requestCode, String project, String branch, String topic,
-            String subject, boolean isPrivate, boolean isWorkInProgress) {
-        ChangeInput input = new ChangeInput();
-        input.project = project;
-        input.branch = branch;
-        input.topic = topic;
-        input.subject = subject;
-        if (ModelHelper.isEqualsOrGreaterVersionThan(getContext(), 2.15d)) {
-            input.status = InitialChangeStatus.NEW;
-            input.isPrivate = isPrivate;
-            input.workInProgress = isWorkInProgress;
-        } else {
-            input.status = InitialChangeStatus.DRAFT;
-        }
-
-        mNewChangeLoader.clear();
-        mNewChangeLoader.restart(input);
     }
 
     @SuppressWarnings("ConstantConditions")
