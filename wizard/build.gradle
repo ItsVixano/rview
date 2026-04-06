@@ -38,7 +38,7 @@ android {
         return void
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 }
