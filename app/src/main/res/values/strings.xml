@@ -636,9 +636,9 @@
 
     <!-- Links -->
     <string name="link_play_store" translatable="false">https://play.google.com/store/apps/details?id=<xliff:g id="package_name" example="com.ruesga.rview">%1$s</xliff:g></string>
-    <string name="link_privacy" translatable="false">https://github.com/jruesga/rview/blob/master/Privacy.md</string>
+    <string name="link_privacy" translatable="false">https://gitlab.com/itsvixano-dev/apps/rview/-/blob/master/Privacy.md?ref_type=heads</string>
     <string name="link_cloud_notifications_plugin">https://gerrit.googlesource.com/plugins/cloud-notifications</string>
-    <string name="link_source_code" translatable="false">https://github.com/jruesga/rview</string>
+    <string name="link_source_code" translatable="false">https://gitlab.com/itsvixano-dev/apps/rview</string>
 
     <!-- Account status dialog -->
     <string name="account_status_dialog_title">Account status</string>
