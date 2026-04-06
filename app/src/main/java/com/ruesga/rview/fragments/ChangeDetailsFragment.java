@@ -3941,9 +3941,13 @@ public class ChangeDetailsFragment extends Fragment implements
 
             // Fetch robot comments if the Gerrit server supports them (2.14 and up)
             if (mAccount.mServerVersion.getVersion() >= 2.14d) {
-                Map<String, List<RobotCommentInfo>> robotComments =
-                        api.getChangeRobotComments(changeId).blockingFirst();
-                mergeCommentsAndRobotComments(comments, robotComments);
+                try {
+                    Map<String, List<RobotCommentInfo>> robotComments =
+                            api.getChangeRobotComments(changeId).blockingFirst();
+                    mergeCommentsAndRobotComments(comments, robotComments);
+                } catch (Exception e) {
+                    // Ignore
+                }
             }
             return comments;
         });
@@ -3958,9 +3962,13 @@ public class ChangeDetailsFragment extends Fragment implements
 
             // Fetch robot comments if the Gerrit server supports them (2.14 and up)
             if (mAccount.mServerVersion.getVersion() >= 2.14d) {
-                Map<String, List<RobotCommentInfo>> robotComments =
-                        api.getChangeRevisionRobotComments(changeId, revId).blockingFirst();
-                mergeCommentsAndRobotComments(comments, robotComments);
+                try {
+                    Map<String, List<RobotCommentInfo>> robotComments =
+                            api.getChangeRevisionRobotComments(changeId, revId).blockingFirst();
+                    mergeCommentsAndRobotComments(comments, robotComments);
+                } catch (Exception e) {
+                    // Ignore
+                }
             }
             return comments;
         });
