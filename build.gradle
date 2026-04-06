@@ -46,8 +46,8 @@ ext {
         androidsvg                  : '1.4',
         keyboardvisibilityevent     : '2.3.0',
         better_link_movement_method : '2.2.0',
-        aboutlibraries              : '8.1.2',
-        aboutlibraries_definitions  : '8.1.0'
+        aboutlibraries              : '8.2.0',
+        aboutlibraries_definitions  : '8.2.0'
     ]
 
     testLibraries = [
