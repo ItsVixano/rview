@@ -80,7 +80,7 @@ public class ChangeQuery extends ComplexQuery<ChangeQuery> {
             null, null, null, null, null, null, null, null,
             null, null, null, null, null, null,
             null, 2.14d, 2.14d, 2.14d, 2.14d, 2.15d,
-            2.15d, 3.0d, 3.0d, 3.0d, 3.0d, 3.7d
+            2.15d, 3.0d, 3.0d, 3.0d, 3.0d, 3.7d, 3.10d
     };
 
     public static final Double[] UNSUPPORTED_FROM_VERSION = {
@@ -91,7 +91,7 @@ public class ChangeQuery extends ComplexQuery<ChangeQuery> {
             null, null, null, null, null, null, null, null,
             null, null, null, null, null, null,
             2.15d, null, null, null, null, null,
-            null, null, null, null, null, null
+            null, null, null, null, null, null, null
     };
 
     public ChangeQuery age(TimeUnit unit, int value) {
