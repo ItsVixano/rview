@@ -67,7 +67,7 @@ allprojects {
             mavenCentral()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:7.0.0'
+            classpath 'com.android.tools.build:gradle:7.4.2'
             classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:4.0.0'
         }
     }
@@ -100,11 +100,11 @@ subprojects {
 
         if (project.plugins.hasPlugin('android') || project.plugins.hasPlugin('android-library')) {
             android {
-                compileSdkVersion 31
+                compileSdkVersion 32
 
                 defaultConfig {
                     minSdkVersion 16
-                    targetSdkVersion 31
+                    targetSdkVersion 32
 
                     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
                 }
