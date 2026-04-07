@@ -92,10 +92,6 @@ android {
         }
     }
 
-    dexOptions {
-        jumboMode = true
-    }
-
     buildTypes {
         debug {
             debuggable true
@@ -145,6 +141,7 @@ android {
             return void
         }
     }
+    namespace 'com.ruesga.rview'
 
     return void
 }
@@ -171,7 +168,8 @@ def addActivityAliases(manifest) {
             "    android:targetActivity=\"com.ruesga.rview.UrlHandlerProxyActivity\"\n" +
             "    android:excludeFromRecents=\"true\"\n" +
             "    android:taskAffinity=\"\"\n" +
-            "    android:enabled=\"false\">\n" +
+            "    android:enabled=\"false\"\n" +
+            "    android:exported=\"true\">\n" +
             "    <intent-filter>\n" +
             "        <action android:name=\"android.intent.action.VIEW\" />\n" +
             "        <category android:name=\"android.intent.category.DEFAULT\" />\n" +

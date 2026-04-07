@@ -41,4 +41,5 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    namespace 'com.ruesga.rview.wizard'
 }

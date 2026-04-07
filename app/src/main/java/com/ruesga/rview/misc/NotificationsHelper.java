@@ -293,7 +293,7 @@ public class NotificationsHelper {
         intent.putExtra(Constants.EXTRA_FORCE_SINGLE_PANEL, true);
 
         return PendingIntent.getActivity(
-                ctx, entity.mGroupId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                ctx, entity.mGroupId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private static PendingIntent getViewAccountChangesPendingIntent(
@@ -304,7 +304,7 @@ public class NotificationsHelper {
         intent.putExtra(Constants.EXTRA_HAS_PARENT, false);
 
         return PendingIntent.getActivity(
-                ctx, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                ctx, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private static PendingIntent getDeleteGroupNotificationPendingIntent(
@@ -314,7 +314,7 @@ public class NotificationsHelper {
         intent.putExtra(Constants.EXTRA_NOTIFICATION_GROUP_ID, groupId);
 
         return PendingIntent.getBroadcast(
-                ctx, groupId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                ctx, groupId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private static PendingIntent getDeleteAccountNotificationPendingIntent(
@@ -325,7 +325,7 @@ public class NotificationsHelper {
         intent.putExtra(Constants.EXTRA_ACCOUNT_HASH, account.getAccountHash());
 
         return PendingIntent.getBroadcast(
-                ctx, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                ctx, notificationId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private static PendingIntent getReplyPendingIntent(
@@ -337,7 +337,7 @@ public class NotificationsHelper {
         intent.putExtra(Constants.EXTRA_NOTIFICATION_GROUP_ID, entity.mGroupId);
 
         return PendingIntent.getBroadcast(
-                ctx, entity.mGroupId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                ctx, entity.mGroupId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private static String getNotificationSubText(Account account) {

@@ -32,4 +32,5 @@ android {
 
         return void
     }
+    namespace 'com.ruesga.rview.drawer'
 }
