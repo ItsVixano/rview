@@ -894,11 +894,13 @@ public class SearchActivity extends AppCompatDelegateActivity {
             Animator anim = ViewAnimationUtils.createCircularReveal(
                     mTarget, cx, cy, mIn ? 0 : cx, mIn ? cx : 0);
             anim.setInterpolator(new AccelerateInterpolator());
-            anim.setDuration(mIn ? 350L : 250L);
+            anim.setDuration(mIn ? 310L : 210L);
             anim.addListener(new Animator.AnimatorListener() {
                 @Override
                 public void onAnimationStart(Animator animation) {
-                    if (!mIn) {
+                    if (mIn) {
+                        mBinding.searchView.setVisibility(View.VISIBLE);
+                    } else {
                         mBinding.toolbar.setVisibility(View.GONE);
                     }
                 }
