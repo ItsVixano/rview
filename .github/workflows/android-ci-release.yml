@@ -1,0 +1,57 @@
+name: Android CI Workflow (release)
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  ci:
+    name: Continuous Integration (release)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Configure Keystore
+        env:
+          KEYSTORE_KEY: ${{ secrets.KEYSTORE_KEY }}
+          PASS_KEY: ${{ secrets.PASS_KEY }}
+        run: |
+          echo "$KEYSTORE_KEY" | base64 --decode > app/keystore.jks
+
+          cat > release.properties << EOF
+          signing.config=keystore.properties
+          EOF
+
+          cat > keystore.properties << EOF
+          keystore=keystore.jks
+          alias=rview
+          storePass=$PASS_KEY
+          pass=$PASS_KEY
+          storeType=jks
+          EOF
+
+      - name: Assemble Floss Release
+        run: ./gradlew assembleFlossRelease
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-floss-release.apk
+          path: app/build/outputs/apk/floss/release/app-floss-release.apk
+
+      - name: Create GitHub Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ github.ref_name }}"
+          prerelease: false
+          title: "Release ${{ github.ref_name }}"
+          files: app/build/outputs/apk/floss/release/app-floss-release.apk
