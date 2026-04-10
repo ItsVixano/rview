@@ -1,4 +1,4 @@
-name: Android CI Workflow
+name: Android CI
 
 on:
   push:
@@ -6,8 +6,7 @@ on:
       - '*'
 
 jobs:
-  ci:
-    name: Continuous Integration
+  build_debug:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repo
