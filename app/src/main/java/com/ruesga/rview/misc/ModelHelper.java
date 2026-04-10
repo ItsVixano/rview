@@ -44,6 +44,7 @@ import com.ruesga.rview.gerrit.model.ReviewerStatus;
 import com.ruesga.rview.gerrit.model.ReviewerUpdateInfo;
 import com.ruesga.rview.gerrit.model.RevisionInfo;
 import com.ruesga.rview.gerrit.model.RobotCommentInfo;
+import com.ruesga.rview.gerrit.model.ServerVersion;
 import com.ruesga.rview.model.Account;
 import com.ruesga.rview.model.Repository;
 import com.ruesga.rview.preferences.Constants;
@@ -724,8 +725,18 @@ public class ModelHelper {
     }
 
     public static boolean isEqualsOrGreaterVersionThan(Account account, double version) {
-        return account != null && account.getServerVersion() != null
-                && account.getServerVersion().getVersion() >= version;
+        if (account == null || account.getServerVersion() == null) {
+            return false;
+        }
+
+        ServerVersion serverVersion = account.getServerVersion();
+
+        String[] versionParts = Double.toString(version).split("\\.");
+        int targetMajor = Integer.parseInt(versionParts[0]);
+        int targetMinor = Integer.parseInt(versionParts[1]);
+
+        return serverVersion.major > targetMajor ||
+                (serverVersion.major == targetMajor && serverVersion.minor >= targetMinor);
     }
 
     public static ChangeMessageInfo createReviewerUpdateMessage(ReviewerUpdateInfo ru) {
