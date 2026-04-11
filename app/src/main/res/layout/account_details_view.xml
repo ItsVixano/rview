@@ -172,7 +172,7 @@
                 <com.ruesga.rview.widget.StyleableTextView
                     android:layout_width="@dimen/label_min_width"
                     android:layout_height="wrap_content"
-                    android:text="@string/account_details_emails"
+                    android:text="@string/account_details_email"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="12sp" />
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    app:accountEmails="@{model}"
+                    app:accountEmail="@{model}"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorSecondary"
                     android:visibility="@{model == null ? View.GONE : View.VISIBLE}"

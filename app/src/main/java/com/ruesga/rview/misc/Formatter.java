@@ -682,8 +682,8 @@ public class Formatter {
                 ? R.drawable.ic_group : R.drawable.ic_person);
     }
 
-    @BindingAdapter("accountEmails")
-    public static void toAccountEmails(TextView v, AccountDetailInfo account) {
+    @BindingAdapter("accountEmail")
+    public static void toAccountEmail(TextView v, AccountDetailInfo account) {
         if (account == null || account.email == null) {
             v.setText(null);
             return;

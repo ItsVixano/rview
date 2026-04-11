@@ -116,28 +116,6 @@ public class AccountStatsPageFragment extends StatsPageFragment<AccountDetailInf
                     }
                 }
 
-                // Fetch secondary emails (only for self account)
-                Account account = Preferences.getAccount(getContext());
-                if (mCachedAccount.accountId == account.mAccount.accountId &&
-                        mCachedAccount.secondaryEmails == null) {
-                    try {
-                        List<EmailInfo> emails = api.getAccountEmails(GerritApi.SELF_ACCOUNT)
-                                .blockingFirst();
-                        if (emails != null) {
-                            List<String> secondaryEmails = new ArrayList<>();
-                            for (EmailInfo email : emails) {
-                                if (!email.pendingConfirmation && !email.preferred) {
-                                    secondaryEmails.add(email.email);
-                                }
-                            }
-                            mCachedAccount.secondaryEmails =
-                                    secondaryEmails.toArray(new String[0]);
-                        }
-                    } catch (Exception ex) {
-                        // Ignore
-                        ex.printStackTrace();
-                    }
-                }
                 return mCachedAccount;
             });
     }
