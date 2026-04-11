@@ -60,7 +60,7 @@
   {"name":"LibreOffice", "url":"https://gerrit.libreoffice.org/", "ci_accounts": "^(Jenkins)$"},
   {"name":"Linaro", "url":"https://review.linaro.org/", "ci_accounts": "^(lava-bot)$"},
   {"name":"Linaro MLPlatform", "url":"https://review.mlplatform.org/", "ci_accounts": "^(.*Jenkins|.*robot)$"},
-  {"name":"LineageOS", "url":"https://review.lineageos.org/", "ci_accounts": "^(Jenkins|Mr Robot|github-actions-no-perms)$"},
+  {"name":"LineageOS", "url":"https://review.lineageos.org/", "ci_accounts": "^(buildkite|Jenkins|Mr Robot|github-actions-no-perms)$"},
   {"name":"LinuxFoundation Infra", "url":"https://gerrit.linuxfoundation.org/infra/", "ci_accounts": "^(Jenkins CI)$"},
   {"name":"Mahara", "url":"https://reviews.mahara.org/", "ci_accounts": "^(Mahara Bot)$"},
   {"name":"MediaWiki", "url":"https://gerrit.wikimedia.org/r/", "ci_accounts": "^(jenkins-bot)$"},
